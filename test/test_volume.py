@@ -32,12 +32,3 @@ def test_volume_invalid_unit_to():
         assert "Unit not supported" in str(e)
     else:
         assert False, "Expected ValueError for unsupported unit"
-
-def main():
-    test_km_m()
-    test_temp_cf()
-
-if __name__ == "__main__":
-    main()
-    print("Tests successfully")
-

@@ -18,7 +18,6 @@ with open(_JSON_PATH, "r") as f:
 def normalize(symbol: str, mode: str) -> str:
     s = symbol.strip().lower()
 
-    # Busca coincidencias
     for standard, forms in aliases[mode].items():
         if s in forms:
             return standard
@@ -26,7 +25,7 @@ def normalize(symbol: str, mode: str) -> str:
     raise ValueError(f"Unidad desconocida: {symbol}")
 
 def main():
-    parser = argparse.ArgumentParser(description = "Conversor")
+    parser = argparse.ArgumentParser(description = "Converter")
     sub = parser.add_subparsers(dest="mode", required=True)
 
     p_mass = sub.add_parser("mass")

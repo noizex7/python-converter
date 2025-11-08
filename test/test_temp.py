@@ -10,7 +10,7 @@ from converters.temp import convert_temp
         (212, "F", "C", 100),
         (0,   "C", "K", 273.15),
         (273.15, "K", "C", 0),
-        (-40, "C", "F", -40),   # punto donde C == F
+        (-40, "C", "F", -40),   
         (-40, "F", "C", -40),
     ],
 )

@@ -1,12 +1,10 @@
 import pytest
 from converters.units import convert_length
 
-# Helper opcional si no quieres usar pytest.approx
 def approx(a, b, eps=1e-9):
     return abs(a - b) < eps
 
 
-# --- Conversiones correctas básicas ---
 def test_length_m_to_km():
     assert convert_length(1000, "m", "km") == 1.0
 
@@ -44,7 +42,6 @@ def test_length_km_to_mi():
     assert convert_length(1.609344, "km", "mi") == pytest.approx(1.0, rel=1e-6)
 
 
-# --- Identidad y round-trip ---
 def test_length_identity():
     assert convert_length(42, "m", "m") == 42
 
@@ -54,7 +51,6 @@ def test_length_round_trip():
     assert pytest.approx(result, rel=1e-9) == x
 
 
-# --- Casos límite ---
 def test_length_zero():
     assert convert_length(0, "km", "m") == 0
 
@@ -62,7 +58,6 @@ def test_length_negative():
     assert convert_length(-2, "km", "m") == -2000
 
 
-# --- Errores ---
 def test_length_invalid_from():
     with pytest.raises(ValueError, match="Unit not supported"):
         convert_length(1, "yard", "m")
